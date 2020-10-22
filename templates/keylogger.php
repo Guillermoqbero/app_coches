@@ -73,6 +73,7 @@ if (!$errores && $existeValidacion) {
 }else{
         echo '<p>NADA</p>';
     };
+    
 ?>
 </form>
 </div>
