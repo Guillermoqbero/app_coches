@@ -1,0 +1,240 @@
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100vw;
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 750px;
+  border: 1px solid black;
+  padding: 50px;
+}
+
+.boton-cliente {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  min-width: 20%;
+  min-height: 150px;
+}
+
+.boton-vendedor {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  min-width: 20%;
+  min-height: 150px;
+}
+
+.boton-registro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  min-width: 20%;
+  min-height: 150px;
+}
+
+button {
+  width: 100%;
+  height: 150px;
+}
+
+a {
+  width: 100%;
+}
+
+.formulario-registro-cliente {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 50%;
+  height: auto;
+  /*     border: 1px solid black;
+ */
+}
+
+.formulario-registro-cliente form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 100%;
+  height: auto;
+  border: 1px solid #9e6262;
+  padding: 20px;
+}
+
+.formulario-registro-cliente form label {
+  font-size: 1.2em;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.formulario-registro-cliente form input {
+  width: 100%;
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  height: 30px;
+}
+
+.formulario-registro-cliente form input[type="submit"] {
+  margin-top: 30px;
+}
+
+.formulario-registro-cliente form button {
+  height: 50px;
+}
+
+.keylogger-cliente {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: 20%;
+  height: auto;
+  margin-left: 100px;
+  /*     border: 1px solid black;
+ */
+}
+
+.keylogger-cliente button {
+  height: 50px;
+}
+
+.keylogger-cliente form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  width: auto;
+  height: auto;
+  border: 1px solid #9e6262;
+  padding: 50px;
+}
+
+.keylogger-cliente form label {
+  font-size: 1.5em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.keylogger-cliente form input {
+  width: 100%;
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.keylogger-cliente form button {
+  height: 50px;
+}
+
+.boton-acceder {
+  /*     display: flex; */
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+}
+
+.success-small {
+  color: green;
+  border-color: green;
+}
+
+.error-small {
+  color: red;
+  border-color: red;
+}
+
+.valid-input {
+  color: green;
+  border-color: green;
+}
+
+.error-input {
+  color: red;
+  border-color: red;
+}
+
+p {
+  margin: 0px;
+}
+/*# sourceMappingURL=styles.css.map */
