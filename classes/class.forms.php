@@ -22,21 +22,46 @@ class CeinaForms{
             case 'password':
                 return $this->getTypePassword($type, $id, $name, $placeholder, $label, $validacion);
                 break;
-            case 'checkbox':
-                return $this->getTypeCheckbox($type, $id, $name, $placeholder, $label, $validacion);
-                break;
-            case 'select':
-                return $this->getTypeSelect($type, $id, $name, $placeholder, $label, $validacion, $options);
-                break;
-            
+            case 'number':
+                return $this->getTypeNumber($type, $id, $name, $placeholder, $label, $validacion); 
             default:
                 # code...
                 break;
+            
+            
                 
         }
     }
 //FUNCIÓN INPUT TEXT
 private function getTypeInput($type, $id, $name, $placeholder, $label, $validacion){
+
+    $classes;
+    $miDato;
+    $esValido = null;
+    if($validacion){
+        $miDato = $this -> sanitizacion($this->datosRecibidos[$name], $type);
+        $esValido = $this-> validacion($miDato, $type);
+        if($esValido){
+                $classes .= "valid-input";
+        }else{
+            $classes .= "error-input";
+              $this->errores = true;
+        }
+    }
+   
+    $textInput .= "<label class=label for=`. $id . `>";
+    $textInput .= $label;
+    $textInput .= "</label>";
+    $textInput.= '<input value="'. $miDato. '" type=text   name="'. $name .'" id=" '.$id.' " placeholder=" '.$placeholder.' " class=" '.$classes.' " />';
+    if($miDato && $esValido){
+        $textInput .="<p class=success-small>Datos Válidos</p>";
+    } if($esValido === false){
+        $textInput .="<p class=error-small>Datos incorrectos. El campo está vacío o el dato no es válido</p>";
+    }
+
+    echo $textInput;
+}
+private function getTypeNumber($type, $id, $name, $placeholder, $label, $validacion){
 
     $classes;
     $miDato;

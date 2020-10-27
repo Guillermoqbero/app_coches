@@ -11,6 +11,7 @@
 
 
 include "../classes/class.forms.php";
+include "../classes/class.db.php";
 
 $InputCeina =new CeinaForms();
 
@@ -39,69 +40,80 @@ $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST"
      $InputCeina ->showInput(
      $type = "text",
      $id = "input-text",
-     $name = "usuario-cliente",
-     $placeholder = "Pon aquí tu nombre de Usuario",
-     $label = "Nombre de Usuario",
+     $name = "nombre",
+     $placeholder = "Pon aquí tu Nombre",
+     $label = "Nombre",
      $validacion = $existeValidacion);
 //--
      $InputCeina ->showInput(
-     $type = "password",
+     $type = "text",
      $id = "input-text",
-     $name = "contraseña-cliente",
-     $placeholder = "Pon aquí tu Contraseña",
-     $label = "Contraseña",
+     $name = "apellido",
+     $placeholder = "Pon aquí tu Apellido",
+     $label = "Apellido",
      $validacion = $existeValidacion);
 //--     
       $InputCeina ->showInput(
      $type = "text",
      $id = "input-text",
-     $name = "calle",
-     $placeholder = "Dirección",
-     $label = "Dirección Postal ",
-     $validacion = $existeValidacion);
-//--     
-      $InputCeina ->showInput(
-     $type = "number",
-     $id = "input-text",
-     $name = "codigo-postal",
-     $placeholder = "Código Postal",
-     $label = "Código Postal",
-     $validacion = $existeValidacion);
-//--     
-      $InputCeina ->showInput(
-     $type = "text",
-     $id = "input-text",
-     $name = "localidad",
-     $placeholder = "Localidad",
-     $label = "Localidad",
+     $name = "email",
+     $placeholder = "Pon aquí tu Correo Electrónico",
+     $label = "Email",
      $validacion = $existeValidacion);
 //--     
       $InputCeina ->showInput(
      $type = "text",
      $id = "input-text",
      $name = "provincia",
-     $placeholder = "Provincia",
+     $placeholder = "Pon aquí tu Provincia",
      $label = "Provincia",
-     $validacion = $existeValidacion);  
+     $validacion = $existeValidacion);
 //--     
       $InputCeina ->showInput(
      $type = "text",
      $id = "input-text",
-     $name = "pais",
-     $placeholder = "País",
-     $label = "País",
-     $validacion = $existeValidacion);            
+     $name = "ciuda",
+     $placeholder = "Pon aquí tu Ciudad",
+     $label = "Ciudad",
+     $validacion = $existeValidacion);
+//--     
+      $InputCeina ->showInput(
+     $type = "text",
+     $id = "input-text",
+     $name = "calle",
+     $placeholder = "Pon aquí tu Dirección Postal",
+     $label = "Dirección Postal",
+     $validacion = $existeValidacion);  
+            
 
 ?>
 <button type="submit" class="submit">Enviar</button>
-</form>
+
+</form><?php
+
+$errores = $InputCeina->hayErrores();
+if (!$errores && $existeValidacion) {
+    
+    // Enviar a la base de datos
+    $idcliente = $enviarCliente->enviarCliente(
+        'ssssss',
+        $InputCeina->datosRecibidos['nombre'],
+        $InputCeina->datosRecibidos['apellido'],
+        $InputCeina->datosRecibidos['email'],
+        $InputCeina->datosRecibidos['provincia'],
+        $InputCeina->datosRecibidos['ciudad'],
+        $InputCeina->datosRecibidos['calle']
+    );
+    if (!empty($idcliente)) {
+        echo '<p>Gracias, hemos recibido y guardado sus datos</p>';
+    }
+}else{
+        echo '<p>NADA</p>';
+    };
+var_dump($enviarCliente);    
+?>
 
 </div>
-<div class="keylogger-cliente">
-    <h3>¿Ya estás registrado? ¡Añade aquí tu vehículo!</h3>
-<a href="./anadir-vehiculo.php">
-<button>Añadir Vehículo</button></a></div>
-
 </div>
 
 </main>

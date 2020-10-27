@@ -20,8 +20,8 @@
                     >
                 </div>
                  <div class="boton-registro">
-                    <a href="./templates/keylogger.php">
-                        <button>Ya estás registrado? <br> Accede aquí</button></a
+                    <a href="./templates/anadir-vehiculo.php">
+                        <button>Registro Vehículo</button></a
                     >
                 </div>
             </div>
