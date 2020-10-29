@@ -14,6 +14,7 @@ include "../classes/class.forms.php";
 include "../classes/class.db.php";
 
 $InputCeina =new CeinaForms();
+$enviarVendedor = new DBforms();
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
      var_dump($_POST);
@@ -48,7 +49,7 @@ $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST"
      $InputCeina ->showInput(
      $type = "text",
      $id = "input-text",
-     $name = "apellido",
+     $name = "apellidos",
      $placeholder = "Pon aquí tu Apellido",
      $label = "Apellido",
      $validacion = $existeValidacion);
@@ -72,7 +73,7 @@ $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST"
       $InputCeina ->showInput(
      $type = "text",
      $id = "input-text",
-     $name = "ciuda",
+     $name = "ciudad",
      $placeholder = "Pon aquí tu Ciudad",
      $label = "Ciudad",
      $validacion = $existeValidacion);
@@ -89,28 +90,36 @@ $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST"
 ?>
 <button type="submit" class="submit">Enviar</button>
 
-</form><?php
+</form>
+<?php
 
 $errores = $InputCeina->hayErrores();
 if (!$errores && $existeValidacion) {
-    
+
+   var_dump($InputCeina->datosRecibidos);
     // Enviar a la base de datos
-    $idcliente = $enviarCliente->enviarCliente(
+    $idvendedor = $enviarVendedor->enviarVendedor(
         'ssssss',
         $InputCeina->datosRecibidos['nombre'],
-        $InputCeina->datosRecibidos['apellido'],
+        $InputCeina->datosRecibidos['apellidos'],
         $InputCeina->datosRecibidos['email'],
         $InputCeina->datosRecibidos['provincia'],
         $InputCeina->datosRecibidos['ciudad'],
         $InputCeina->datosRecibidos['calle']
-    );
-    if (!empty($idcliente)) {
+    ); 
+    
+   
+    if (!empty($idvendedor)) {
         echo '<p>Gracias, hemos recibido y guardado sus datos</p>';
     }
 }else{
         echo '<p>NADA</p>';
     };
-var_dump($enviarCliente);    
+
+    
+   
+   /*  $datosAEnviar = $miConexion->prepare($prepare); */
+
 ?>
 
 </div>

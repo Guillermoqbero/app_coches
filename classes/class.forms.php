@@ -35,8 +35,9 @@ class CeinaForms{
 //FUNCIÓN INPUT TEXT
 private function getTypeInput($type, $id, $name, $placeholder, $label, $validacion){
 
-    $classes;
-    $miDato;
+    $classes="";
+    $miDato="";
+    $textInput="";
     $esValido = null;
     if($validacion){
         $miDato = $this -> sanitizacion($this->datosRecibidos[$name], $type);
@@ -63,8 +64,9 @@ private function getTypeInput($type, $id, $name, $placeholder, $label, $validaci
 }
 private function getTypeNumber($type, $id, $name, $placeholder, $label, $validacion){
 
-    $classes;
-    $miDato;
+    $classes="";
+    $miDato="";
+    $textInput="";
     $esValido = null;
     if($validacion){
         $miDato = $this -> sanitizacion($this->datosRecibidos[$name], $type);

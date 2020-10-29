@@ -4,7 +4,7 @@ class DBforms {
     public $servername;
     public $username;
     public $password;
-  /*   public $myDB; */
+    public $myDB;
 
     // Variable para el directorio de los files
     /* public $dir_subida = "tmp";   */  
@@ -14,9 +14,9 @@ class DBforms {
 
     public function __construct(
        
-        $servername = 'localhost',
-        $username = 'guillermo',
-        $password = 'nxdgaT8h@6j]BJSf',
+        $servername = 'Localhost',
+        $username = 'root',
+        $password = '',
         $myDB = 'guillermo_db2'
     ) {
         $this->servername = $servername;
@@ -43,17 +43,18 @@ class DBforms {
     }
 
     
-    public function enviarCliente($nombre, $apellido, $email, $provincia, $ciudad, $calle)
+    public function enviarCliente($datos, $nombre, $apellidos, $email, $provincia, $ciudad, $calle)
     {
         $miConexion = $this->crearConexion();
-        $enviarCliente = $miConexion->prepare("INSERT INTO COMPRADORES (nombre, apellido, email, provincia, ciudad, calle ) VALUES (?, ?, ? ,?, ?, ?)");
+        $enviarCliente = $miConexion->prepare("INSERT INTO COMPRADORES (nombre, apellidos, email, provincia, ciudad, calle ) VALUES (?, ?, ? ,?, ?, ?)");
         $enviarCliente->bind_param(
+            $datos,
             $nombre,
-            $contrasena,
+            $apellidos,
             $email,
             $provincia,
             $ciudad,
-            $calle,
+            $calle
           );
 
         // Compruebo si la conexión se establece bien
@@ -79,13 +80,18 @@ class DBforms {
         return $id;
 
     }
-public function enviarVendedor($nombre, $contrasena)
+public function enviarVendedor($datos, $nombre, $apellidos, $email, $provincia, $ciudad, $calle)
     {
         $miConexion = $this->crearConexion();
-        $enviarVendedor = $miConexion->prepare("INSERT INTO VENDEDORES (nombre, contrasena) VALUES (?, ?)");
+        $enviarVendedor = $miConexion->prepare("INSERT INTO VENDEDORES (nombre, apellidos, email, provincia, ciudad, calle ) VALUES (?, ?, ? ,?, ?, ?)");
         $enviarVendedor->bind_param(
+            $datos,
             $nombre,
-            $contrasena
+            $apellidos,
+            $email,
+            $provincia,
+            $ciudad,
+            $calle
           );
 
         // Compruebo si la conexión se establece bien
@@ -111,14 +117,16 @@ public function enviarVendedor($nombre, $contrasena)
         return $id;
 
     }
-public function enviarVehiculo($marca, $modelo, $motor, $num_puertas)
+    
+public function enviarVehiculo($datos, $marca, $modelo, $tipo_motor, $num_puertas)
     {
         $miConexion = $this->crearConexion();
-        $enviarVehiculo = $miConexion->prepare("INSERT INTO COCHES  (marca, modelo, motor, num_puertas) VALUES (?, ?, ?, ?)");
+        $enviarVehiculo = $miConexion->prepare("INSERT INTO COCHES  (marca, modelo, tipo_motor, num_puertas) VALUES (?, ?, ?, ?)");
         $enviarVehiculo->bind_param(
+            $datos,
             $marca,
             $modelo,
-            $motor,
+            $tipo_motor,
             $num_puertas
           );
 
@@ -131,7 +139,7 @@ public function enviarVehiculo($marca, $modelo, $motor, $num_puertas)
         $enviarVehiculo->execute();
         
         // Compruebo si se envia y no hay error
-        if (!$enviaenviarVehiculorkeylogger) {
+        if (!$enviarVehiculo) {
             throw new Exception($miConexion->error_list);
         }
 
