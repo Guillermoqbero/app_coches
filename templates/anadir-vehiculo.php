@@ -97,9 +97,7 @@ if (!$errores && $existeValidacion) {
     if (!empty($idvehiculo)) {
         echo '<p>Gracias, hemos recibido y guardado sus datos</p>';
     }
-}else{
-        echo '<p>NADA</p>';
-    };
+}
 
     
    
@@ -108,6 +106,7 @@ if (!$errores && $existeValidacion) {
 ?>
 </form>
 </div>
+
 </div>
 
 </main>

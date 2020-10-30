@@ -23,6 +23,10 @@ main {
     border: 1px solid black;
     min-width: 20%;
     min-height: 150px;
+    button {
+        height: 150px;
+        width: 100%;
+    }
 }
 .boton-vendedor {
     display: flex;
@@ -31,6 +35,10 @@ main {
     border: 1px solid black;
     min-width: 20%;
     min-height: 150px;
+    button {
+        height: 150px;
+        width: 100%;
+    }
 }
 .boton-registro {
     display: flex;
@@ -39,11 +47,12 @@ main {
     border: 1px solid black;
     min-width: 20%;
     min-height: 150px;
+    button {
+        height: 150px;
+        width: 100%;
+    }
 }
-button {
-    width: 100%;
-    height: 150px;
-}
+
 a {
     width: 100%;
 }
@@ -82,6 +91,7 @@ a {
             margin-top: 30px;
         }
         button {
+            width: 100%;
             height: 50px;
         }
     }
@@ -148,4 +158,37 @@ a {
 }
 p {
     margin: 0px;
+}
+table {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin: 0px;
+
+    tr {
+        display: flex;
+        justify-content: flex-start;
+        border: 1px solid black;
+        width: 100%;
+        th {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+        }
+        td {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+            margin: 0px;
+        }
+    }
+}
+tbody {
+    width: 100%;
+}
+.modal-dialog {
+    min-width: 80%;
+}
+.modal-content {
+    width: auto;
 }
