@@ -17,7 +17,6 @@ $InputCeina =new CeinaForms();
 $enviarVehiculo = new DBforms();
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-     var_dump($_POST);
   $InputCeina->enviarFormulario($_POST);
 }
 $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST" ? true : false; 
@@ -82,8 +81,6 @@ $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST"
 
 $errores = $InputCeina->hayErrores();
 if (!$errores && $existeValidacion) {
-
-   var_dump($InputCeina->datosRecibidos);
     // Enviar a la base de datos
     $idvehiculo = $enviarVehiculo->enviarVehiculo(
         'sssi',

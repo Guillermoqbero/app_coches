@@ -24,7 +24,7 @@ $InputCeina =new CeinaForms();
 $enviarCliente = new DBforms();
 
 if($_SERVER["REQUEST_METHOD"] === "POST"){
-     var_dump($_POST);
+   
   $InputCeina->enviarFormulario($_POST);
 }
 $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST" ? true : false; 
@@ -105,7 +105,7 @@ $existeValidacion = !empty($InputCeina) && $_SERVER["REQUEST_METHOD"] === "POST"
 $errores = $InputCeina->hayErrores();
 if (!$errores && $existeValidacion) {
 
-   var_dump($InputCeina->datosRecibidos);
+
     // Enviar a la base de datos
     $idcliente = $enviarCliente->enviarCliente(
         'ssssss',
@@ -116,8 +116,6 @@ if (!$errores && $existeValidacion) {
         $InputCeina->datosRecibidos['ciudad'],
         $InputCeina->datosRecibidos['calle']
     ); 
-    
-   
     if (!empty($idcliente)) {
         echo '<p>Gracias, hemos recibido y guardado sus datos</p>';
     }
@@ -180,8 +178,7 @@ while($mostrar=mysqli_fetch_array($result)){
 </table>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+       
       </div>
     </div>
   </div>

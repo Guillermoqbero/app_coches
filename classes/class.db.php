@@ -118,16 +118,18 @@ public function enviarVendedor($datos, $nombre, $apellidos, $email, $provincia, 
 
     }
     
-public function enviarVehiculo($datos, $marca, $modelo, $tipo_motor, $num_puertas)
+public function enviarVehiculo($datos, $marca, $modelo, $tipo_motor, $num_puertas, $idCompradores, $idVendedores)
     {
         $miConexion = $this->crearConexion();
-        $enviarVehiculo = $miConexion->prepare("INSERT INTO COCHES  (marca, modelo, tipo_motor, num_puertas) VALUES (?, ?, ?, ?)");
+        $enviarVehiculo = $miConexion->prepare("INSERT INTO COCHES  (marca, modelo, tipo_motor, num_puertas, COMPRADORES_id, VENDEDORES_id) VALUES (?, ?, ?, ?)");
         $enviarVehiculo->bind_param(
             $datos,
             $marca,
             $modelo,
             $tipo_motor,
-            $num_puertas
+            $num_puertas,
+            $idCompradores,
+            $idVendedores
           );
 
         // Compruebo si la conexión se establece bien
